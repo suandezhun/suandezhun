@@ -83,33 +83,36 @@ function showDate() {
         console.log(xhr.getAllResponseHeaders())
         curDate = new Date(time);
         document.getElementById("time").innerHTML = "服务器时间是："+curDate.getFullYear()+"-"+(curDate.getMonth()+1)+"-"+curDate.getDate()+" "+curDate.getHours()+":"+curDate.getMinutes();
+      
+      
+      	var yangli = getFullYear(dNow)+"年"+(dNow.getMonth()+1)+"月"+dNow.getDate()+"日"+" "+sWeek[dNow.getDay()]+" ";
+		//sValue+=GetLunarDay(yy,mm,dd);
+		var yingli = GetLunarDay(yy,mm,dd)
+		var today=new Date();
+		var day=new Array(7);
+		var m=today.getMinutes()
+		var s=today.getSeconds()
+		day[0]="星期一"
+		day[1]="星期二"
+		day[2]="星期三"
+		day[3]="星期四"
+		day[4]="星期五"
+		day[5]="星期六"
+		day[6]="星期天"
+		m=checknumber(m);
+		s=checknumber(s);
+		document.getElementById("time1").innerHTML="本地时间："+today.getHours()+":"+m+":"+s
+		document.getElementById("yangli").innerHTML = yangli;
+		document.getElementById("yingli").innerHTML= yingli;
+		document.getElementById("text1").innerHTML="算得准|每日一签";
+		document.getElementById("text2").innerHTML="宜：" + "学习";
+		document.getElementById("text3").innerHTML="忌：" + "玩手机";
+		document.getElementById("text4").innerHTML="有时候你不努力一下";
+		document.getElementById("text5").innerHTML="不知道什么叫绝望";      
       }
     }
     
-	var yangli = getFullYear(dNow)+"年"+(dNow.getMonth()+1)+"月"+dNow.getDate()+"日"+" "+sWeek[dNow.getDay()]+" ";
-	//sValue+=GetLunarDay(yy,mm,dd);
-	var yingli = GetLunarDay(yy,mm,dd)
-	var today=new Date();
-	var day=new Array(7);
-	var m=today.getMinutes()
-	var s=today.getSeconds()
-	day[0]="星期一"
-	day[1]="星期二"
-	day[2]="星期三"
-	day[3]="星期四"
-	day[4]="星期五"
-	day[5]="星期六"
-	day[6]="星期天"
-	m=checknumber(m);
-	s=checknumber(s);
-	document.getElementById("time1").innerHTML="本地时间："+today.getHours()+":"+m+":"+s
-	document.getElementById("yangli").innerHTML = yangli;
-	document.getElementById("yingli").innerHTML= yingli;
-	document.getElementById("text1").innerHTML="算得准|每日一签";
-	document.getElementById("text2").innerHTML="宜：" + "学习";
-	document.getElementById("text3").innerHTML="忌：" + "玩手机";
-	document.getElementById("text4").innerHTML="有时候你不努力一下";
-	document.getElementById("text5").innerHTML="不知道什么叫绝望";
+
 
 	setTimeout(function(){showDate()},1000)
 };
