@@ -57,9 +57,14 @@ function checknumber(i)
 
 //*****************************************
 
-ajax()
-  function ajax(option){
-    var xhr = null;
+  function ajax(){
+
+  }
+//*******************************************
+
+function showDate() {
+
+	var xhr = null;
     if(window.XMLHttpRequest){
       xhr = new window.XMLHttpRequest();
     }else{ // ie
@@ -70,24 +75,25 @@ ajax()
     xhr.send(null);
     // 监听请求状态变化
     xhr.onreadystatechange = function(){
-      var time = null,
-          curDate = null;
+    var time = null,
+    curDate = null;
       if(xhr.readyState===2){
         // 获取响应头里的时间戳
         time = xhr.getResponseHeader("Date");
         console.log(xhr.getAllResponseHeaders())
         curDate = new Date(time);
-        document.getElementById("time").innerHTML = "服务器时间是："+curDate.getFullYear()+"-"+(curDate.getMonth()+1)+"-"+curDate.getDate()+" "+curDate.getHours()+":"+curDate.getMinutes()+":"+curDate.getSeconds();
+        document.getElementById("time").innerHTML = "服务器时间是："+curDate.getFullYear()+"-"+(curDate.getMonth()+1)+"-"+curDate.getDate()+" "+curDate.getHours()+":"+curDate.getMinutes();
       }
     }
-  }
-//*******************************************
-
-function showDate() {
+    
+    var sy = curDate.getFullYear();
+    var sm = curDate.getMonth()+1;
+    var sd = curDate.getDate();
+    
 	var yangli = getFullYear(dNow)+"年"+(dNow.getMonth()+1)+"月"+dNow.getDate()+"日"+" "+sWeek[dNow.getDay()]+" ";
 	//sValue+=GetLunarDay(yy,mm,dd);
 	var yingli = GetLunarDay(yy,mm,dd)
-		var today=new Date();
+	var today=new Date();
 	var day=new Array(7);
 	var m=today.getMinutes()
 	var s=today.getSeconds()
@@ -100,7 +106,7 @@ function showDate() {
 	day[6]="星期天"
 	m=checknumber(m);
 	s=checknumber(s);
-	document.getElementById("time1").innerHTML=today.getHours()+":"+m+":"+s
+	document.getElementById("time1").innerHTML="本地时间："+today.getHours()+":"+m+":"+s
 	document.getElementById("yangli").innerHTML = yangli;
 	document.getElementById("yingli").innerHTML= yingli;
 	document.getElementById("text1").innerHTML="算得准|每日一签";
@@ -108,5 +114,6 @@ function showDate() {
 	document.getElementById("text3").innerHTML="忌：" + "玩手机";
 	document.getElementById("text4").innerHTML="有时候你不努力一下";
 	document.getElementById("text5").innerHTML="不知道什么叫绝望";
-	setTimeout(function(){showDate()},500)
+
+	setTimeout(function(){showDate()},1000)
 };
