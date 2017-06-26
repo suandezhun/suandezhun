@@ -86,10 +86,6 @@ function showDate() {
       }
     }
     
-    var sy = curDate.getFullYear();
-    var sm = curDate.getMonth()+1;
-    var sd = curDate.getDate();
-    
 	var yangli = getFullYear(dNow)+"年"+(dNow.getMonth()+1)+"月"+dNow.getDate()+"日"+" "+sWeek[dNow.getDay()]+" ";
 	//sValue+=GetLunarDay(yy,mm,dd);
 	var yingli = GetLunarDay(yy,mm,dd)
